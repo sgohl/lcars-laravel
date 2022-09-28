@@ -24,3 +24,4 @@ sail npm install
     `resources/js/lcars.js`
 - added lcars to `vite.config.js`
 - added logged-in user status and logout to top-left of lcars-template
+- modified `routes/web.php` to group the routes
