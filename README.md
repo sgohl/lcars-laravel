@@ -6,10 +6,21 @@
 
 ```
 laravel new lcars-laravel
-composer require laravel/breeze
+php artisan sail:install
+
+sail composer require laravel/breeze --dev
+sail artisan breeze:install
+sail artisan migrate
+
+sail npm install
 ```
 
 ##### Modification history:
 
-- added lcars css/js to `resources/` and `vite.config.js`
+- Downloaded Classic and Red Template from https://www.thelcars.com/download.php
+- resulting files:
+    `resources/css/lcars/classic.css`
+    `resources/css/lcars/red.css`
+    `resources/js/lcars.js`
+- added lcars to `vite.config.js`
 - added logged-in user status and logout to top-left of lcars-template
