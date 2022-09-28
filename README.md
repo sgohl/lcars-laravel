@@ -18,6 +18,7 @@ sail npm install
 ##### Modification history:
 
 - Downloaded Classic and Red Template from https://www.thelcars.com/download.php
+- beautified css
 - resulting files:
     `resources/css/lcars/classic.css`
     `resources/css/lcars/red.css`
