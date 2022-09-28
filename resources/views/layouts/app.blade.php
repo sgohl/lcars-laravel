@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-<title>{{ config('app.name', 'Laravel') }}</title>
+<title>{{ config('app.name') }}</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 <meta name="format-detection" content="date=no">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <link rel="stylesheet" type="text/css" href="lcars-classic.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap" rel="stylesheet">
 
-<!-- Scripts -->
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 @vite(['resources/css/lcars/classic.css', 'resources/js/lcars.js'])
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
+
 <body>
 <div class="wrap">
 	<div class="scroll-top">
@@ -23,7 +26,14 @@
 	</div>
 	<div class="left-frame-top">
 		<div class="panel-1"><a href="">{{ Auth::user()->name }}</a></div>
-		<div class="panel-2">02<span class="hop">-262000</span></div>
+		
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <div class="panel-2" onclick="event.preventDefault(); this.closest('form').submit();">
+                <a href="route('logout')">{{ __('Logout') }}</a>
+            </div>
+        </form>
+
 	</div>
 	<div class="right-frame-top">
 		<div class="banner">
